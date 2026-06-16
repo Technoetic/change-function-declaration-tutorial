@@ -22,14 +22,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      # npm has a known bug where `npm ci` skips optional platform binaries
-      # when the lockfile was generated on a different OS (Windows here).
-      # Vite 8 (rolldown) + its CSS minifier (lightningcss) both ship native
-      # bindings as optional deps, so `npm ci` leaves Linux runners without
+      # npm has a known bug where the optional platform binaries baked into a
+      # lockfile generated on another OS (Windows here) are not reinstalled on
+      # a different platform. Vite 8 (rolldown) and its CSS minifier
+      # (lightningcss) both ship their native bindings as optional deps, so a
+      # cached node_modules / cross-OS lockfile leaves the Linux runner without
       # @rolldown/binding-linux-x64-gnu and lightningcss.linux-x64-gnu.
-      # `npm install` resolves optional deps for the current platform correctly.
-      # (npm/cli#4828)
+      # The reliable fix is to drop the lockfile and let npm resolve optional
+      # deps fresh for this platform. (npm/cli#4828)
+      - run: rm -f package-lock.json
       - run: npm install
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
