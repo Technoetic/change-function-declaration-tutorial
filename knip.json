@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/main.js",
+    "tests/**/*.js",
+    "tests/**/*.cjs",
+    "step_archive/tools/*.cjs",
+    "vite.config.js",
+    "vitest.config.js"
+  ],
+  "project": [
+    "src/**/*.js",
+    "tests/**/*.js",
+    "tests/**/*.cjs",
+    "step_archive/tools/*.cjs",
+    "*.js",
+    "*.json"
+  ],
+  "ignore": [
+    "dist/**",
+    ".claude/**",
+    "step_archive/.obsidian/**",
+    "coverage/**"
+  ]
+}

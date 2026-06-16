@@ -1,0 +1,39 @@
+{
+  "name": "change-function-declaration-tutorial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build --target es2022",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "coverage:c8": "c8 --reporter=text npm run test",
+    "verify:ui": "node tests/e2e/verify-ui.cjs",
+    "quality:jscpd": "jscpd src tests --reporters console --min-lines 5 --min-tokens 50",
+    "quality:madge": "madge src --extensions js --circular",
+    "research:topic": "node step_archive/tools/playwright-research.cjs",
+    "research:awwwards": "node step_archive/tools/playwright-awwwards.cjs",
+    "lint": "biome check src tests index.html package.json vite.config.js vitest.config.js stylelint.config.js && stylelint \"src/**/*.css\"",
+    "format": "biome format --write src tests index.html package.json vite.config.js vitest.config.js stylelint.config.js"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "@axe-core/playwright": "^4.11.3",
+    "c8": "^11.0.0",
+    "jscpd": "^5.0.5",
+    "jsdom": "^25.0.1",
+    "knip": "^5.73.0",
+    "madge": "^8.0.0",
+    "playwright": "^1.60.0",
+    "stylelint": "^17.13.0",
+    "stylelint-config-standard": "^40.0.0",
+    "vite": "^8.0.16",
+    "@vitest/coverage-v8": "^4.1.8",
+    "vitest": "^4.1.8"
+  }
+}

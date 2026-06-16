@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Coverage
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+.env.local
+
+# Claude harness artifacts (not part of the published tutorial)
+.claude/
+.mcp.json
+step_archive/
+
+# Internal harness instructions (not part of the public tutorial)
+CLAUDE.md

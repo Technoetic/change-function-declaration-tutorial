@@ -1,0 +1,37 @@
+:root {
+  --font-body: "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
+  --color-ink: #152022;
+  --color-muted: #607074;
+  --color-soft: #eff4f2;
+  --color-surface: #fbfcf8;
+  --color-panel: #fff;
+  --color-panel-alt: #f5f0e5;
+  --color-line: #cad7d1;
+  --color-line-strong: #8aa39a;
+  --color-accent: #117d72;
+  --color-accent-strong: #0b5f58;
+  --color-mint: #b9e3c6;
+  --color-coral: #e36b57;
+  --color-amber: #e4b84c;
+  --color-blue: #3f6f8f;
+  --color-black: #0f1415;
+  --color-white: #fff;
+  --shadow-low: 0 8px 24px rgb(21 32 34 / 10%);
+  --shadow-mid: 0 16px 48px rgb(21 32 34 / 14%);
+  --focus-ring: 3px solid #e4b84c;
+  --opacity-disabled: 0.42;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --size-topbar: 88px;
+  --size-rail: 248px;
+  --size-panel: 352px;
+  --transition-fast: 160ms ease;
+  --transition-slow: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
