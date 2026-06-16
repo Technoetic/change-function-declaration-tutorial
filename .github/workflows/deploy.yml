@@ -25,10 +25,12 @@ jobs:
           cache: npm
       # npm has a known bug where `npm ci` skips optional platform binaries
       # when the lockfile was generated on a different OS (Windows here).
-      # rolldown-vite needs @rolldown/binding-linux-x64-gnu on the runner,
-      # so install it explicitly after ci. (npm/cli#4828)
-      - run: npm ci
-      - run: npm install --no-save @rolldown/binding-linux-x64-gnu
+      # Vite 8 (rolldown) + its CSS minifier (lightningcss) both ship native
+      # bindings as optional deps, so `npm ci` leaves Linux runners without
+      # @rolldown/binding-linux-x64-gnu and lightningcss.linux-x64-gnu.
+      # `npm install` resolves optional deps for the current platform correctly.
+      # (npm/cli#4828)
+      - run: npm install
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
