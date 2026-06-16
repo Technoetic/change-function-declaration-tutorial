@@ -23,7 +23,12 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      # npm has a known bug where `npm ci` skips optional platform binaries
+      # when the lockfile was generated on a different OS (Windows here).
+      # rolldown-vite needs @rolldown/binding-linux-x64-gnu on the runner,
+      # so install it explicitly after ci. (npm/cli#4828)
       - run: npm ci
+      - run: npm install --no-save @rolldown/binding-linux-x64-gnu
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
